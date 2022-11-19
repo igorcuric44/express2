@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<button class="btn">Button</button>
+<br>
+
+<script>
+
+const btnE1=document.querySelector(".btn");
+
+const clickHandler=async ()=>{
+try{
+const res=await fetch("http://localhost:5000/api/login/5",
+{
+method:'DELETE',
+headers:{'Accept': 'application/json','Content-Type':'application/json'},
+//body:JSON.stringify(newUser)
+}
+);
+const data=await res.json();
+
+if(!res.ok)
+{
+console.log(data);
+return;
+}
+console.log(data);
+
+}catch(error)
+{
+console.log(error);
+}
+
+
+}
+
+btnE1.addEventListener("click",clickHandler);
+
+</script>
+</body>
+</html>

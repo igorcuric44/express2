@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+
+<body>
+
+<script>
+const p=new Promise((resolve,reject)=>
+{
+const number=7;
+
+if(number>5)
+{
+resolve("Success");
+}else
+{
+reject("Not enough promise");
+}}
+)
+
+
+const check=async ()=>{
+try{
+const value=await p;
+console.log(value);
+}catch(reason){
+console.log(reason);
+}
+};
+
+check();
+
+
+
+</script>
+</body>
+</html>

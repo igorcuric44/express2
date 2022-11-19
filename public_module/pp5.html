@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<button class="btn">Button</button>
+<br>
+
+<script>
+
+const btnE1=document.querySelector(".btn");
+
+const clickHandler=async ()=>{
+
+const res=await fetch("http://localhost:5000/api/people");
+
+const data=await res.json();
+
+console.log(data);
+
+console.log(data[0].name);
+
+}
+
+btnE1.addEventListener("click",clickHandler);
+
+</script>
+</body>
+</html>

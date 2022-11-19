@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+
+<script>
+
+console.log(fetch("http://localhost:5000/api/people"));
+
+fetch("http://localhost:5000/api/people")
+.then(res=>{
+if(!res.ok){
+	console.log("Problem");
+	return;
+	}
+	return res.json();
+})
+.then(data=>{
+	console.log(data);
+})
+.catch(error=>{
+	console.log(error);
+});
+
+</script>
+</body>
+</html>

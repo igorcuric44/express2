@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+<form class="form">
+<label for="name">Enter name</label>
+<input type="text" name="name" autocomplete="false">
+<br>
+<button >Submit</button>
+</form>
+<script>
+
+const formE1=document.querySelector(".form");
+
+formE1.addEventListener("submit",(event) =>
+{
+event.preventDefault();
+
+const formData=new FormData(formE1);
+console.log(formData.get("name"));
+
+const data=Object.fromEntries(formData);
+console.log(data);
+
+
+//const data=new URLSearchParams(formData);
+
+fetch("http://localhost:5000/login",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+}).then(res=>res.json())
+.then(data=>console.log(data))
+.catch(error=>console.log(error));
+});
+</script>
+</body>
+</html>

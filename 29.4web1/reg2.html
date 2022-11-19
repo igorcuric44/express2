@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Get the current URL</h2>
+
+<p id="demo"></p>
+
+<p id="demo1"></p>
+
+
+<p id="demo2"></p>
+
+<p id="demo3"></p>
+
+
+<script>
+document.getElementById("demo").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href;
+
+let text=window.location.href;
+let pattern=/\/reg2.html/g; 
+let result = text.match(pattern);
+
+document.getElementById("demo1").innerHTML=result;
+
+if(result=="/reg2.html"){
+document.getElementById("demo2").innerHTML="true";
+} else
+{
+document.getElementById("demo2").innerHTML="false";
+}
+
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+<script>
+function getPromise(URL) {
+  let promise = new Promise(function (resolve, reject) {
+    let req = new XMLHttpRequest();
+    req.open("GET", URL);
+    req.onload = function () {
+      if (req.status == 200) {
+        resolve(req.response);
+      } else {
+        reject("There is an Error!");
+      }
+    };
+    req.send();
+  });
+  return promise;
+}
+
+
+const POKEMONS_BAD_URL = 'https://pokeapi.co/api/v2/pokemon-bad/';
+
+// This will reject as the URL is 404
+let promise = getPromise(POKEMONS_BAD_URL);
+
+const consumer = () => {
+    promise.then(
+        (result) => {
+            // The promise didn't resolve. Hence, it will
+            // not be executed.
+            console.log({result});
+        },
+        (error) => {
+            // A rejected prmise will execute this
+            console.log('We have encountered an Error!'); // Log an error
+        }
+    );
+}
+
+consumer();
+
+</script>
+
+</body>
+</html>

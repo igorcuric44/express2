@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<title>Submit Form Using JavaScript</title>
+
+</head>
+
+<body>
+
+<form id="myForm">
+
+<!-- Input Fields -->
+
+<input type="text" name="username" id="username" placeholder="Enter your Username">
+
+
+<!-- when clicked on the below button, the form will be submitted -->
+
+<button type="submit">Submit</button>
+
+</form>
+
+<script>
+var myForm = document.getElementById('myForm');
+// Event listener that listens for submit event
+myForm.addEventListener("submit", function(e){
+    e.preventDefault();
+// retrieve values
+var username = document.getElementById('username').value;
+
+
+// validate username and password fields
+if(username==''){
+        alert("Please Fill all required fields");
+    }
+else{
+        alert("Form submission successful");
+    }
+})
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+<script>
+let promise = new Promise(function(resolve, reject) {
+  resolve("I am surely going to get resolved!");
+
+  reject(new Error('Will this be ignored?')); // ignored
+  resolve("Ignored?"); // ignored
+});
+
+console.log(promise);
+
+</script>
+
+</body>
+</html>
